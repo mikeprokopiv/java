@@ -1,3 +1,4 @@
+public class Main2 {
 //Task diff21
 
 public int diff21(int n) {
@@ -6,4 +7,4 @@ public int diff21(int n) {
 	} else { 
 		return 21-n;
 	} 
-}
+}}
