@@ -3,9 +3,9 @@ public class Main {
         System.out.println ("Test");
     }
 
-    //sleapIn
+    //sleapIn enchanced
     public boolean sleepIn(boolean weekday, boolean vacation) {
-        return (!weekday || vacation);
+        return !weekday || vacation;
     }
 
     //monkey trouble
@@ -22,6 +22,12 @@ public class Main {
         } return (a+b);
     }
 
+    //sumDouble solution #2
+    public int sumDouble(int a, int b) {
+        return a == b ? ( a + b ) * 2 : a + b ;
+    }
+
+
     //diff21
     public int diff21(int n) {
         if (n<21) {
@@ -29,19 +35,25 @@ public class Main {
         }return (n-21)*2;
     }
 
-    //parrotTrouble
+    //diff21 solution #2
+    public int diff21(int n) {
+        return n < 21 ? 21-n : (n-21)*2;
+    }
+
+
+    //parrotTrouble enchanced
     public boolean parrotTrouble (boolean talking, int hour) {
-        return (talking && (hour <7 || hour >20));
+        return talking && (hour <7 || hour >20);
     }
 
-    //makes10
+    //makes10 enchanced
     public boolean makes10(int a, int b) {
-        return ((a+b)==10 || a==10 || b==10);
+        return (a+b)==10 || a==10 || b==10;
     }
 
-    //nearHundred
+    //nearHundred enchanced
     public boolean nearHundred (int n) {
-        return (Math.abs(n-100)<=10 || Math.abs(n-200)<=10);
+        return Math.abs(n-100)<=10 || Math.abs(n-200)<=10;
     }
 
     //posNeg
@@ -49,9 +61,20 @@ public class Main {
         return a<0 && b>0 && !negative || a>0 && b<0 && !negative || a<0 && b<0 && negative;
     }
 
-    //notString
+    //posNeg solution #2
+    public boolean posNeg(int a, int b, boolean negative) {
+        if (a>0 && b<0 && !negative) {
+            return true;
+        } else if (a<0 && b>0 && !negative) {
+            return true;
+        } else if (a<0 && b<0 && negative) {
+            return true;
+        }   return false;
+    }
+
+    //notString enchanced
     public String notString (String str) {
-        if (str.length() >=3 && str.substring (0, 3).equals("not")) {
+        if (!str.equals("") && str.length() >=3 && str.substring (0, 3).equals("not")) {
             return str;
         } return "not " + str;
     }
