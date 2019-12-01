@@ -1,10 +1,33 @@
+//Warm up-2
 public class Main2 {
-//Task diff21
+	//stringTimes
+	public String stringTimes (String str, int n) {
+		String result="";
+		for (int i=0; i<n; i++) {
+			result+=str;
+		} return result;
+	}
 
-public int diff21(int n) {
-	if (n > 21) {
-		return (n - 21) * 2;
-	} else { 
-		return 21-n;
-	} 
-}}
+	//frontTimes
+	public String frontTimes (String str, int n) {
+		String result="";
+		for (int i=0; i<n; i++) {
+			if (str.length()>=3) {
+				result += str.substring(0,3);
+			} else result +=str;
+		} return result;
+	}
+
+	//countXX
+	int countXX (String str) {
+		int count = 0;
+		for (int i=0; i<str.length()-1;i++){
+			if (str.charAt(i)== 'x'){
+				count++;
+			}
+		} return count;
+	}
+
+
+
+}

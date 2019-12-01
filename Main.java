@@ -23,7 +23,7 @@ public class Main {
     }
 
     //sumDouble solution #2
-    public int sumDouble(int a, int b) {
+    public int sumDouble2(int a, int b) {
         return a == b ? ( a + b ) * 2 : a + b ;
     }
 
@@ -36,7 +36,7 @@ public class Main {
     }
 
     //diff21 solution #2
-    public int diff21(int n) {
+    public int diff212(int n) {
         return n < 21 ? 21-n : (n-21)*2;
     }
 
@@ -62,7 +62,7 @@ public class Main {
     }
 
     //posNeg solution #2
-    public boolean posNeg(int a, int b, boolean negative) {
+    public boolean posNeg2(int a, int b, boolean negative) {
         if (a>0 && b<0 && !negative) {
             return true;
         } else if (a<0 && b>0 && !negative) {
@@ -108,4 +108,121 @@ public class Main {
 
         return result;
     }
+
+    //missing char
+    public String missingChar (String str, int n) {
+        String frontStr = str.substring(0,n);
+        String backStr = str.substring(n+1, str.length());
+        return frontStr+backStr;
+    }
+
+
+    //frontBack
+    public String frontBack (String str) {
+        if (str.length()>1) {
+            String firstLetter = str.substring(0,1);
+            String lastLetter = str.substring(str.length()-1,str.length());
+            return str=lastLetter+str.substring(1,str.length()-1)+ firstLetter;
+        } return str;
+    }
+
+    //front3
+    public String front3 (String str) {
+        if (str.length()<3) {
+            return str+str+str;
+        } else {
+            return str.substring(0,3) + str.substring(0,3)+ str.substring(0,3);
+        }
+    }
+    //backAround
+    public String backAround (String str){
+        String lastChar = str.substring(str.length()-1,str.length());
+        return lastChar + str + lastChar;
+    }
+
+    //0r35
+    public boolean or35 (int n){
+        if (n>0) {
+            return n%3==0 || n%5==0;
+        } return false;
+    }
+
+    //front22
+    public String front22 (String str) {
+        if (str.length()>=2){
+            return str.substring(0,2) + str + str.substring(0,2);
+        } return  str+ str+str;
+    }
+
+    //startHi
+    public boolean startHi (String str){
+        return str.startsWith("hi");
+    }
+
+    //icyHot
+    public boolean icyHot (int temp1, int temp2) {
+        return (temp1<0 && temp2>100) || (temp1>100 && temp2<0);
+    }
+
+    //in1020
+    public  boolean in1020 (int a, int b) {
+        return a>=10 && a<=20 || b>=10 && b<=20;
+    }
+
+    //hasTeen
+    public boolean hasTeen (int a, int b, int c) {
+        return  a>=13 && a<=19 ||
+                b>=13 && b<=19 ||
+                c>=13 && c<=19;
+    }
+
+    //delDel
+    public String delDel (String str){
+        if (str.length()>=4 && str.substring(1,4).equals("del")) {
+            return str.substring(0,1)+str.substring(4,str.length());
+        } return str;
+    }
+
+    //max1020 (not working properly)
+    public int max1020 (int a, int b) {
+        int max = Math.max(a,b);
+        if (max>=10 && max <=20){
+            return max;
+        } else return 0;
+    }
+
+    //stringE
+    public boolean stringE (String str) {
+        int count=0;
+        for (int i=0; i<str.length();i++) {
+            if (str.charAt(i)== 'e')
+                count++;
+        }
+        return (count>=1 && count<=3);
+
+    }
+
+    //lastDigit
+    public boolean lastDigit (int a, int b) {
+        return a%10==b%10;
+    }
+
+    //endUp
+    public String endUp (String str) {
+        if (str.length()<=3) {
+            return str.toUpperCase();
+        }
+        String front = str.substring(0,str.length()-3);
+        String back = str.substring(str.length()-3).toUpperCase();
+        return  front + back;
+    }
+
+    //enveryNth
+    public String everyNth (String str, int n) {
+        String result = "";
+        for (int i=0; i<str.length(); i=i+n){
+            result = result + str.charAt(i);
+        } return result;
+    }
+
 }
