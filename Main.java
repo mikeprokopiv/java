@@ -1,3 +1,5 @@
+package com.prokopim.java.warmup;
+
 public class Main {
     public static void main(String[] args){
         System.out.println ("Test");
@@ -12,14 +14,16 @@ public class Main {
     public boolean monkeyTrouble(boolean aSmile, boolean bSmile) {
         if (aSmile && !bSmile || !aSmile && bSmile) {
             return false;
-        } return true;
+        }
+        return true;
     }
 
     //sumDouble
     public int sumDouble(int a, int b) {
         if (a==b) {
             return (a+b)*2;
-        } return (a+b);
+        }
+        return (a+b);
     }
 
     //sumDouble solution #2
@@ -32,7 +36,8 @@ public class Main {
     public int diff21(int n) {
         if (n<21) {
             return 21-n;
-        }return (n-21)*2;
+        }
+        return (n-21)*2;
     }
 
     //diff21 solution #2
@@ -69,14 +74,16 @@ public class Main {
             return true;
         } else if (a<0 && b<0 && negative) {
             return true;
-        }   return false;
+        }
+            return false;
     }
 
     //notString enchanced
     public String notString (String str) {
         if (!str.equals("") && str.length() >=3 && str.substring (0, 3).equals("not")) {
             return str;
-        } return "not " + str;
+        }
+        return "not " + str;
     }
 
     //stringTimes
@@ -111,52 +118,68 @@ public class Main {
 
     //missing char
     public String missingChar (String str, int n) {
-        String frontStr = str.substring(0,n);
-        String backStr = str.substring(n+1, str.length());
-        return frontStr+backStr;
+        if (str.length() <= 0 && n >= 0) {
+            return str.substring(0, n) + str.substring(n + 1, str.length();
+        }
     }
 
 
     //frontBack
     public String frontBack (String str) {
-        if (str.length()>1) {
-            String firstLetter = str.substring(0,1);
-            String lastLetter = str.substring(str.length()-1,str.length());
-            return str=lastLetter+str.substring(1,str.length()-1)+ firstLetter;
-        } return str;
+        if (str.length()>0){
+            if (str.length()>1) {
+                String firstLetter = str.substring(0,1);
+                String lastLetter = str.substring(str.length()-1,str.length());
+                return str=lastLetter+str.substring(1,str.length()-1)+ firstLetter;
+            }
+            return str;
+        }
+        return str;
     }
 
     //front3
     public String front3 (String str) {
-        if (str.length()<3) {
+        String sub = str.substring(0,3);
+        if (str.length()>0){
+            if (str.length()<3) {
             return str+str+str;
-        } else {
-            return str.substring(0,3) + str.substring(0,3)+ str.substring(0,3);
+            } else {
+            return sub+sub+sub;
+            }
         }
+        return str;
     }
     //backAround
     public String backAround (String str){
+        if (str.length()>0){
         String lastChar = str.substring(str.length()-1,str.length());
         return lastChar + str + lastChar;
+        }
     }
 
-    //0r35
+    //0r35 to check
     public boolean or35 (int n){
-        if (n>0) {
-            return n%3==0 || n%5==0;
-        } return false;
+        return  (n>0) ? n%3==0 || n%5==0 : false;
     }
 
     //front22
     public String front22 (String str) {
-        if (str.length()>=2){
-            return str.substring(0,2) + str + str.substring(0,2);
-        } return  str+ str+str;
+        String sub=str.substring(0,2);
+        if (str.length()>0){
+            if (str.length()>=2){
+            return sub + str + sub;
+            }
+            return  str+ str+str;
+        }
+        return str;
     }
 
     //startHi
     public boolean startHi (String str){
-        return str.startsWith("hi");
+        if (str.length()>0) {
+            return str.startsWith("hi");
+        }
+        return false;
     }
 
     //icyHot
@@ -178,28 +201,32 @@ public class Main {
 
     //delDel
     public String delDel (String str){
-        if (str.length()>=4 && str.substring(1,4).equals("del")) {
+        if (str.length()>0){
+            if (str.length()>=4 && str.substring(1,4).equals("del")) {
             return str.substring(0,1)+str.substring(4,str.length());
-        } return str;
+            }
+            return str;
+        }
+        return str;
     }
 
     //max1020 (not working properly)
     public int max1020 (int a, int b) {
         int max = Math.max(a,b);
-        if (max>=10 && max <=20){
-            return max;
-        } else return 0;
+        return  (max>=10 && max <=20)? max: 0;
     }
 
     //stringE
     public boolean stringE (String str) {
         int count=0;
-        for (int i=0; i<str.length();i++) {
-            if (str.charAt(i)== 'e')
-                count++;
+        if (str.length>0) {
+            for (int i = 0; i < str.length(); i++) {
+                if (str.charAt(i) == 'e')
+                    count++;
+            }
+            return (count >= 1 && count <= 3);
         }
-        return (count>=1 && count<=3);
-
+        return false;
     }
 
     //lastDigit
@@ -209,12 +236,15 @@ public class Main {
 
     //endUp
     public String endUp (String str) {
-        if (str.length()<=3) {
-            return str.toUpperCase();
+        if (str.length() > 0) {
+            if (str.length() <= 3) {
+                return str.toUpperCase();
+            }
+            String front = str.substring(0, str.length() - 3);
+            String back = str.substring(str.length() - 3).toUpperCase();
+            return front + back;
         }
-        String front = str.substring(0,str.length()-3);
-        String back = str.substring(str.length()-3).toUpperCase();
-        return  front + back;
+        return str;
     }
 
     //enveryNth
@@ -222,7 +252,8 @@ public class Main {
         String result = "";
         for (int i=0; i<str.length(); i=i+n){
             result = result + str.charAt(i);
-        } return result;
+        }
+        return result;
     }
 
 }
