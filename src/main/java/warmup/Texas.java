@@ -79,19 +79,14 @@ public class Texas {
 
     //notString enchanced
     public String notString(String str) {
-        if (!str.equals("") && str.length() >= 3 && str.substring(0, 3).equals("not")) {
+        if (str == null) {
             return str;
+        } else {
+            if (!str.equals("") && str.length() >= 3 && str.substring(0, 3).equals("not")) {
+                return str;
+            }
+            return "not " + str;
         }
-        return "not " + str;
-    }
-
-    //stringTimes
-    public String stringTimes(String str, int n) {
-        String stringTimes = "";
-        for (int i = 0; i < n; i++) {
-            stringTimes += str;
-        }
-        return stringTimes;
     }
 
     //loneTeen
@@ -102,6 +97,9 @@ public class Texas {
 
     //stringYak
     public String stringYak(String str) {
+        if (str == null) {
+            return str;
+        }
         String result = "";
 
         for (int i = 0; i < str.length(); i++) {
@@ -117,6 +115,9 @@ public class Texas {
 
     //missing char
     public String missingChar(String str, int n) {
+        if (str == null) {
+            return str;
+        }
         if (str.length() <= 0 && n >= 0) {
             return str.substring(0, n) + str.substring(n + 1, str.length());
         }
@@ -125,13 +126,13 @@ public class Texas {
 
     //frontBack
     public String frontBack(String str) {
-        if (str.length() > 0) {
-            if (str.length() > 1) {
-                String firstLetter = str.substring(0, 1);
-                String lastLetter = str.substring(str.length() - 1, str.length());
-                return str = lastLetter + str.substring(1, str.length() - 1) + firstLetter;
-            }
+        if (str == null) {
             return str;
+        }
+        if (str.length() > 1) {
+            String firstLetter = str.substring(0, 1);
+            String lastLetter = str.substring(str.length() - 1, str.length());
+            return str = lastLetter + str.substring(1, str.length() - 1) + firstLetter;
         }
         return str;
     }
@@ -139,23 +140,23 @@ public class Texas {
     //front3
     public String front3(String str) {
         String sub = str.substring(0, 3);
-        if (str.length() > 0) {
-            if (str.length() < 3) {
-                return str + str + str;
-            } else {
-                return sub + sub + sub;
-            }
+        if (str == null) {
+            return str;
         }
-        return str;
+        if (str.length() < 3) {
+            return str + str + str;
+        } else {
+            return sub + sub + sub;
+        }
     }
 
     //backAround
     public String backAround(String str) {
-        if (str.length() > 0) {
-            String lastChar = str.substring(str.length() - 1, str.length());
-            return lastChar + str + lastChar;
+        if (str == null) {
+            return str;
         }
-        return str;
+        String lastChar = str.substring(str.length() - 1, str.length());
+        return lastChar + str + lastChar;
     }
 
     //0r35 to check
@@ -166,21 +167,21 @@ public class Texas {
     //front22
     public String front22(String str) {
         String sub = str.substring(0, 2);
-        if (str.length() > 0) {
-            if (str.length() >= 2) {
-                return sub + str + sub;
-            }
-            return str + str + str;
+        if (str == null) {
+            return str;
         }
-        return str;
+        if (str.length() >= 2) {
+            return sub + str + sub;
+        }
+        return str + str + str;
     }
 
     //startHi
     public boolean startHi(String str) {
-        if (str.length() > 0) {
-            return str.startsWith("hi");
+        if (str == null) {
+            return false;
         }
-        return false;
+        return str.startsWith("hi");
     }
 
     //icyHot
@@ -202,11 +203,11 @@ public class Texas {
 
     //delDel
     public String delDel(String str) {
-        if (str.length() > 0) {
-            if (str.length() >= 4 && str.substring(1, 4).equals("del")) {
-                return str.substring(0, 1) + str.substring(4, str.length());
-            }
+        if (str == null) {
             return str;
+        }
+        if (str.length() >= 4 && str.substring(1, 4).equals("del")) {
+            return str.substring(0, 1) + str.substring(4, str.length());
         }
         return str;
     }
@@ -220,14 +221,14 @@ public class Texas {
     //stringE
     public boolean stringE(String str) {
         int count = 0;
-        if (str.length() > 0) {
-            for (int i = 0; i < str.length(); i++) {
-                if (str.charAt(i) == 'e')
-                    count++;
-            }
-            return (count >= 1 && count <= 3);
+        if (str == null) {
+            return false;
         }
-        return false;
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) == 'e')
+                count++;
+        }
+        return (count >= 1 && count <= 3);
     }
 
     //lastDigit
@@ -237,19 +238,22 @@ public class Texas {
 
     //endUp
     public String endUp(String str) {
-        if (str.length() > 0) {
-            if (str.length() <= 3) {
-                return str.toUpperCase();
-            }
-            String front = str.substring(0, str.length() - 3);
-            String back = str.substring(str.length() - 3).toUpperCase();
-            return front + back;
+        if (str == null) {
+            return str;
         }
-        return str;
+        if (str.length() <= 3) {
+            return str.toUpperCase();
+        }
+        String front = str.substring(0, str.length() - 3);
+        String back = str.substring(str.length() - 3).toUpperCase();
+        return front + back;
     }
 
     //enveryNth
     public String everyNth(String str, int n) {
+        if (str == null) {
+            return str;
+        }
         String result = "";
         for (int i = 0; i < str.length(); i = i + n) {
             result = result + str.charAt(i);
