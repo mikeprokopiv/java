@@ -1,16 +1,21 @@
 package warmup;
 
 import org.junit.Test;
-
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 public class NevadaTest {
-    private Nevada Nev = new Nevada();
+    private Nevada nev = new Nevada();
 
     @Test
-    public void Splosion() {
-        String result = Nev.stringSplosion("Code");
-        assertEquals("CCoCodCode", result);
+    public void stringNullCheck() {
+        String result = nev.stringSplosion(null);
+        assertNull(result);
+    }
 
+    @Test
+    public void stringApend() {
+        String result = nev.stringSplosion("Code");
+        assertEquals("CCoCodCode", result);
     }
 }

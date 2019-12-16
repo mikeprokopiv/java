@@ -1,4 +1,4 @@
-package main.java.warmup;
+package warmup;
 // Here are warmup-2 practice task storred;
 
 public class Arizona {
@@ -31,7 +31,7 @@ public class Arizona {
                 result += str;
             }
         }
-        return str;
+        return result;
     }
 
     //countXX
@@ -53,12 +53,12 @@ public class Arizona {
         if (str == null) {
             return false;
         }
-        int x = str.indexOf("x");
+        int x = str.indexOf('x');
         if (x == -1) {
             return false;
         }
         if (x + 1 < str.length()) {
-            return str.substring(x + 1, x + 2).equals("x");
+            return str.substring(x + 1, x + 2).equals('x');
         } else {
             return false;
         }

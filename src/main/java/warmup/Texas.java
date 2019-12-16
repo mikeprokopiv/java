@@ -1,4 +1,4 @@
-package main.java.warmup;
+package warmup;
 // Here are warmup-1 practice tasks;
 
 public class Texas {
@@ -71,10 +71,9 @@ public class Texas {
             return true;
         } else if (a < 0 && b > 0 && !negative) {
             return true;
-        } else if (a < 0 && b < 0 && negative) {
-            return true;
+        } else {
+            return a < 0 && b < 0 && negative;
         }
-        return false;
     }
 
     //notString enchanced
@@ -119,7 +118,7 @@ public class Texas {
             return str;
         }
         if (str.length() <= 0 && n >= 0) {
-            return str.substring(0, n) + str.substring(n + 1, str.length());
+            return str.substring(0, n) + str.substring(n + 1);
         }
         return str;
     }
@@ -132,20 +131,20 @@ public class Texas {
         if (str.length() > 1) {
             String firstLetter = str.substring(0, 1);
             String lastLetter = str.substring(str.length() - 1, str.length());
-            return str = lastLetter + str.substring(1, str.length() - 1) + firstLetter;
+            return lastLetter + str.substring(1, str.length() - 1) + firstLetter;
         }
         return str;
     }
 
     //front3
     public String front3(String str) {
-        String sub = str.substring(0, 3);
         if (str == null) {
             return str;
         }
         if (str.length() < 3) {
             return str + str + str;
         } else {
+            String sub = str.substring(0, 3);
             return sub + sub + sub;
         }
     }
@@ -161,16 +160,16 @@ public class Texas {
 
     //0r35 to check
     public boolean or35(int n) {
-        return (n > 0) ? n % 3 == 0 || n % 5 == 0 : false;
+        return (n > 0) && (n % 3 == 0 || n % 5 == 0);
     }
 
     //front22
     public String front22(String str) {
-        String sub = str.substring(0, 2);
         if (str == null) {
             return str;
         }
         if (str.length() >= 2) {
+            String sub = str.substring(0, 2);
             return sub + str + sub;
         }
         return str + str + str;
@@ -207,7 +206,7 @@ public class Texas {
             return str;
         }
         if (str.length() >= 4 && str.substring(1, 4).equals("del")) {
-            return str.substring(0, 1) + str.substring(4, str.length());
+            return str.substring(0, 1) + str.substring(4);
         }
         return str;
     }
@@ -256,7 +255,7 @@ public class Texas {
         }
         String result = "";
         for (int i = 0; i < str.length(); i = i + n) {
-            result = result + str.charAt(i);
+            result += str.charAt(i);
         }
         return result;
     }

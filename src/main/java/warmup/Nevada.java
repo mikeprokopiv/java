@@ -1,11 +1,6 @@
 package warmup;
 
 public class Nevada {
-    public static void main(String[] args) {
-        System.out.println("Test case expected result is ");
-    }
-
-
     //stringSplosion
     public String stringSplosion(String str) {
         if (str == null) {
