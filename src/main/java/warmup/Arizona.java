@@ -58,7 +58,7 @@ public class Arizona {
             return false;
         }
         if (x + 1 < str.length()) {
-            return str.substring(x + 1, x + 2).equals('x');
+            return str.substring(x + 1, x + 2).equals("x");
         } else {
             return false;
         }

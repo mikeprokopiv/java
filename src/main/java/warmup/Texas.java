@@ -117,7 +117,7 @@ public class Texas {
         if (str == null) {
             return str;
         }
-        if (str.length() <= 0 && n >= 0) {
+        if (n >= 0) {
             return str.substring(0, n) + str.substring(n + 1);
         }
         return str;
