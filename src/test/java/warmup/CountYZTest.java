@@ -6,7 +6,7 @@ import static org.junit.Assert.*;
 
 public class CountYZTest {
 
-    CountYZ countyz = new CountYZ();
+  private CountYZ countyz = new CountYZ();
 
     @Test
     public void specialCharsString() {
