@@ -8,13 +8,13 @@ public class NevadaTest {
     private Nevada nev = new Nevada();
 
     @Test
-    public void stringNullCheck() {
+    public void testNullString() {
         String result = nev.stringSplosion(null);
         assertNull(result);
     }
 
     @Test
-    public void stringApend() {
+    public void testStringApend() {
         String result = nev.stringSplosion("Code");
         assertEquals("CCoCodCode", result);
     }

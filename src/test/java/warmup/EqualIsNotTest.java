@@ -8,40 +8,40 @@ public class EqualIsNotTest {
    private EqualIsNot ein = new EqualIsNot();
 
     @Test
-    public void notNullAssertion (){
+    public void testNullString (){
         boolean result = ein.equalIsNot(null);
         assertFalse("User entered a null string", result);
     }
 
     @Test
-    public void longStringTrueAssertion (){
+    public void testLongStringTrueAssertion (){
         boolean result = ein.equalIsNot("noisxxnotyynotxisi");
         assertTrue(result);
     }
 
     @Test
-    public void longStringFalseAssertion (){
+    public void tesLongStringFalseAssertion (){
         boolean result = ein.equalIsNot("noisxxnotyynotxsi");
         assertFalse(result);
     }
 
     @Test
-    public void stringWithDigitFalseAssertion (){
+    public void shouldAcceptStringWithDigit (){
         boolean result = ein.equalIsNot("isisnotno7Not");
         assertFalse(result);
     }
     @Test
-    public void threeWordsIsAssertion (){
+    public void testThreeWordsFalseAssertion (){
         boolean result = ein.equalIsNot("This is not");
         assertFalse(result);
     }
     @Test
-    public void emptyStringAssertion (){
+    public void shouldAcceptEmptyString (){
         boolean result = ein.equalIsNot("");
         assertTrue(result);
     }
     @Test
-    public void threeWordsTrueAssertion (){
+    public void testThreeWordsTrueAssertion (){
         boolean result = ein.equalIsNot("This is notnot");
         assertTrue(result);
     }

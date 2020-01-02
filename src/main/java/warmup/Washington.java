@@ -1,11 +1,10 @@
 package warmup;
 
 class Washington {
-    int count;
 
     int stringMatch(String a, String b) {
         if (a == null || b == null) {
-            throw new NullPointerException("String can not be null") ;
+            throw new IllegalArgumentException("String can not be null") ;
         }
         int len = Math.min(a.length(), b.length());
         int count = 0;

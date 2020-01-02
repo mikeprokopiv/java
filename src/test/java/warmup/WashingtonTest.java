@@ -8,19 +8,19 @@ public class WashingtonTest {
     private Washington was = new Washington();
 
     @Test
-    public void countTwoCharMatchedWithinTwoStr() {
+    public void testCountTwoCharMatchedWithinTwoStr() {
         int result = was.stringMatch("red", "redder");
         assertEquals(2, result);
     }
 
-    @Test(expected = NullPointerException.class)
-    public void firstOfTheStringsIsNull() {
+    @Test(expected = IllegalArgumentException.class)
+    public void testFirstOfTheStringsIsNull() {
         int result = was.stringMatch(null, "red");
         assertEquals(0, result);
     }
 
-    @Test(expected = NullPointerException.class)
-    public void secondOfTheStringsIsNull() {
+    @Test(expected = IllegalArgumentException.class)
+    public void tetsSecondOfTheStringsIsNull() {
         int result = was.stringMatch("red", null);
         assertEquals(0, result);
     }
