@@ -41,7 +41,7 @@ public class CountYZTest {
     @Test
     public void testNullString(){
         int result = countyz.countYZ(null);
-        assertEquals(0,result);
+        assertEquals(0, result);
     }
 
 }

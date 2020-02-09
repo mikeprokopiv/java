@@ -1,28 +1,25 @@
 package warmup;
 
-public class CountYZ {
-
+class CountYZ {
     public int countYZ(String str) {
-        int count = 0;
-        if (str == null) {
-            return count;
+        if (str==null) {
+            return 0;
         }
+        int len = str.length();
+        int count = 0;
+        str = str.toLowerCase();
 
-        String strLowerCase = str.toLowerCase();
-        strLowerCase = " " + strLowerCase + " ";
+        for (int i = 0; i < len; i++) {
 
-        for (int i = 0; i < strLowerCase.length(); i++) {
-            if (!Character.isLetter(strLowerCase.charAt(i))) {
-                if (isYorZ(strLowerCase, i - 1)) {
+            if (str.charAt(i) == 'y' || str.charAt(i) == 'z') {
+                if (i < len - 1 && !Character.isLetter(str.charAt(i + 1)))
                     count++;
-                }
+                else if (i == len - 1)
+                    count++;
             }
         }
         return count;
     }
 
-    private boolean isYorZ(String str, int pos) {
-        return str.charAt(pos) == 'y' || str.charAt(pos) == 'z';
-    }
 }
 
