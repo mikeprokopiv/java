@@ -1,6 +1,7 @@
 package task;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 public class FirstClass {
     private final String name;
@@ -79,6 +80,7 @@ public class FirstClass {
 
     }
 
+    @Override
     public String toString() {
         return "In this task user's name is " + name +
                 " and surname is " + surname + " and his age is " + age +
@@ -87,6 +89,7 @@ public class FirstClass {
                 " and string array is " + Arrays.toString(strArray);
     }
 
+    @Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
@@ -101,20 +104,38 @@ public class FirstClass {
                 Arrays.equals(primitiveArray, newFirstClass.primitiveArray) &&
                 Arrays.equals(strArray, newFirstClass.strArray);
     }
+    //    // Solution #1
+    //    @Override
+    //    public int hashCode() {
+    //        int result = 17;
+    //        result = 31 * result +  (name != null ? name.hashCode() : 0);
+    //        result = 31 * result + (surname != null ? surname.hashCode() : 0);
+    //        result = 31 * result + age;
+    //        result = 31 * result + (obj != null ? obj.hashCode() : 0);
+    //        result = 31 * result + Arrays.hashCode(primitiveArray);
+    //        result = 31 * result + Arrays.hashCode(strArray);
+    //        return result;
+    //    }
 
+    //  //Solution #2
+    //    @Override
+    //    public int hashCode() {
+    //        int result = Objects.hash(name, surname, age, obj);
+    //        result = 31 * result + Arrays.hashCode(primitiveArray);
+    //        result = 31 * result + Arrays.hashCode(strArray);
+    //        return result;
+    //    }
+
+    // Solution #3
+    @Override
     public int hashCode() {
-        // is it better to use native hashCode() method of primitive (e.g. String) or Objects.hash() can be used (available from jdk 7 );
-        // Why I can not call hashCode method for int field (age)? despite Integer class has it;
-
         int result = 17;
-        result = 31 * result + name.hashCode();
-        result = 31 * result + surname.hashCode();
-        result = 31 * result + age;
-        result = 31 * result + obj.hashCode();
+        result = 31 * result + Objects.hash(name, surname, age, obj);
         result = 31 * result + Arrays.hashCode(primitiveArray);
         result = 31 * result + Arrays.hashCode(strArray);
         return result;
     }
+
 
     public static void main(String[] args) {
         System.out.println(new Builder("John", "Smith", 54).classObject("someObj")
