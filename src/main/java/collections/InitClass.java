@@ -1,17 +1,17 @@
-package collections;
+package src.main.java.collections;
 
 import java.util.Arrays;
 import java.util.Objects;
 
 public class InitClass {
-    final int number;
-    final String name;
-    final String surname;
-    final boolean firstYearStudent;
-    final int[] marks;
-    final String[] subjects;
+    private final int number;
+    private final String name;
+    private final String surname;
+    private final boolean firstYearStudent;
+    private final int[] marks;
+    private final String[] subjects;
 
-    InitClass(Builder builder) {
+    private InitClass(Builder builder) {
         this.number = builder.number;
         this.name = builder.name;
         this.surname = builder.surname;
@@ -21,24 +21,20 @@ public class InitClass {
     }
 
     static class Builder {
-        final int number;
-        final String name;
-        final String surname;
-        boolean firstYearStudent;
-        final int[] marks;
-        final String[] subjects;
+        private final int number;
+        private final String name;
+        private final String surname;
+        private boolean firstYearStudent;
+        private final int[] marks;
+        private final String[] subjects;
 
-        Builder(int number, String name, String surname, int[] marks, String[] subjects) {
+        Builder(int number, String name, String surname, int[] marks, String[] subjects, boolean firstYearStudent) {
             this.number = number;
             this.name = name;
             this.surname = surname;
             this.marks = marks;
             this.subjects = subjects;
-        }
-
-        Builder doesStudentIsFirstYear(boolean firstYearStudent) {
             this.firstYearStudent = firstYearStudent;
-            return this;
         }
 
         InitClass build() {
@@ -54,7 +50,8 @@ public class InitClass {
                 ", surname - " + surname +
                 ", marks = " + Arrays.toString(marks) +
                 ", subjects = " + Arrays.toString(subjects) +
-                ", firstYearStudent = " + firstYearStudent;
+                ", firstYearStudent=" + firstYearStudent +
+                '}';
     }
 
     @Override
@@ -76,5 +73,29 @@ public class InitClass {
         result = 31 * result + Arrays.hashCode(marks);
         result = 31 * result + Arrays.hashCode(subjects);
         return result;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public boolean isFirstYearStudent() {
+        return firstYearStudent;
+    }
+
+    public int[] getMarks() {
+        return marks;
+    }
+
+    public String[] getSubjects() {
+        return subjects;
     }
 }
