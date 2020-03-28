@@ -14,7 +14,7 @@ public class Map1Test {
 
     //MapBully method test
     @Test
-    public void test_That_if_a_key_has_value_it_will_be_assign_to_b_key() {
+    public void testThatifakeyhasvalueitwillbeassigntobkey() {
         Map<String, String> MapBully = new HashMap<>();
         MapBully.put("a", "candy");
         MapBully.put("b", "dirt");
